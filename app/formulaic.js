@@ -1,25 +1,31 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default {
+  fill: function(label, value) {
+    var selector = "label:contains('" + label + "')";
+
+    if (typeof value === "boolean") {
+      var checkboxSelector = selector + " + input";
+
+      click(checkboxSelector);
+    } else {
+      var textSelector = selector + " + input";
+      var textareaSelector = selector + " + textarea";
+
+      fillIn(textSelector, value).catch(function() {
+        fillIn(textareaSelector, value);
+      });
+    }
+  },
+
   fillForm: function(attributes) {
     var labels = Ember.keys(attributes);
+    var formulaic = this;
 
     labels.forEach(function(label) {
       var value = attributes[label];
-      var selector = ":contains('" + label + "')";
 
-      if (typeof value === "boolean") {
-        var checkboxSelector = selector + " + input";
-
-        click(checkboxSelector);
-      } else {
-        var textSelector = selector + " + input";
-        var textareaSelector = selector + " + textarea";
-
-        fillIn(textSelector, value).catch(function() {
-          fillIn(textareaSelector, value);
-        });
-      }
+      formulaic.fill(label, value);
     });
   }
 };

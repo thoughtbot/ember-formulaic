@@ -25,7 +25,7 @@ With the following form:
 </form>
 ```
 
-In your acceptance test, import `formulaic`
+In your acceptance test, import `formulaic` and use the `fillForm` method.
 
 ```javascript
 // test/acceptance/fill-in-form.js
@@ -48,7 +48,29 @@ test("fill in form", function() {
     equal(currentPath(), "loggedInPath");
   });
 });
+```
 
+If you'd like, you can use `formulaic.fill`:
+
+```javascript
+// test/acceptance/fill-in-form.js
+import formulaic from "../../formulaic";
+
+// ...
+
+test("fill in form", function() {
+
+  visit("/login")
+
+  formulaic.fill("Email or Username", "ralph@thoughtbot.com");
+  formulaic.fill("Password", "secret");
+  formulaic.fill("Remember me", true);
+  click("button.submit");
+
+  andThen(function() {
+    equal(currentPath(), "loggedInPath");
+  });
+});
 ```
 
 ## Installation

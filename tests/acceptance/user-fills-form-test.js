@@ -28,3 +28,17 @@ test("with fillForm", function() {
     ok(find("#checked-checkbox").is(":checked"));
   });
 });
+
+test("with fill", function() {
+  visit("/");
+
+  formulaic.fill("Text", "text value");
+  formulaic.fill( "Textarea", "textarea value");
+  formulaic.fill("Checked Checkbox", true);
+
+  andThen(function() {
+    equal(find("#text").val(), "text value");
+    equal(find("#textarea").val(), "textarea value");
+    ok(find("#checked-checkbox").is(":checked"));
+  });
+});
