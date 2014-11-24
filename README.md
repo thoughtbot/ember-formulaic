@@ -1,5 +1,12 @@
 # Ember-Formulaic
 
+Simplify form filling
+
+Remove the tedium of formulaic form filling with Ember Test Helpers
+
+Formulaic allows you to specify a hash of attributes to be input rather than
+procedurally calling Ember’s DSL methods.
+
 ## Usage
 
 With the following form:
@@ -42,7 +49,6 @@ import formulaic from "../../formulaic";
 // ...
 
 test("fill in form", function() {
-
   visit("/login")
 
   formulaic.fillForm({
@@ -68,7 +74,6 @@ import formulaic from "../../formulaic";
 // ...
 
 test("fill in form", function() {
-
   visit("/login")
 
   formulaic.fill("Email or Username", "ralph@thoughtbot.com");
