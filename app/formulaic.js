@@ -12,9 +12,10 @@ export default {
       var textSelector = selector + " + input";
       var textareaSelector = selector + " + textarea";
 
-      fillIn(textSelector, value).catch(function() {
-        fillIn(textareaSelector, value);
-      });
+      fillIn(textSelector, value)
+        .then(function() {}, function() {
+          fillIn(textareaSelector, value);
+        });
     }
   },
 

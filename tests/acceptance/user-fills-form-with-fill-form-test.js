@@ -13,32 +13,35 @@ module("Acceptance: User fills form", {
   }
 });
 
-test("with fillForm", function() {
+test("text", function() {
   visit("/");
 
   formulaic.fillForm({
     "Text": "text value",
-    "Textarea": "textarea value",
-    "Checked Checkbox": true
+    "Textarea": "textarea value"
   });
 
   andThen(function() {
     equal(find("#text").val(), "text value");
-    equal(find("#textarea").val(), "textarea value");
-    ok(find("#checked-checkbox").is(":checked"));
   });
 });
 
-test("with fill", function() {
+test("textarea", function() {
   visit("/");
 
-  formulaic.fill("Text", "text value");
-  formulaic.fill( "Textarea", "textarea value");
-  formulaic.fill("Checked Checkbox", true);
+  formulaic.fillForm({ "Textarea": "textarea value" });
 
   andThen(function() {
-    equal(find("#text").val(), "text value");
     equal(find("#textarea").val(), "textarea value");
+  });
+});
+
+test("checkbox", function() {
+  visit("/");
+
+  formulaic.fillForm({ "Checked Checkbox": true });
+
+  andThen(function() {
     ok(find("#checked-checkbox").is(":checked"));
   });
 });
