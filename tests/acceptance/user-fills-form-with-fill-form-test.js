@@ -16,23 +16,40 @@ module("Acceptance: User fills form", {
 test("text", function() {
   visit("/");
 
-  formulaic.fillForm({
-    "Text": "text value",
-    "Textarea": "textarea value"
-  });
+  formulaic.fillForm({ "Text": "text" });
 
   andThen(function() {
-    equal(find("#text").val(), "text value");
+    equal(find("#text").val(), "text");
   });
 });
 
 test("textarea", function() {
   visit("/");
 
-  formulaic.fillForm({ "Textarea": "textarea value" });
+  formulaic.fillForm({ "Textarea": "textarea" });
 
   andThen(function() {
-    equal(find("#textarea").val(), "textarea value");
+    equal(find("#textarea").val(), "textarea");
+  });
+});
+
+test("select", function() {
+  visit("/");
+
+  formulaic.fillForm({ "Select": "#2" });
+
+  andThen(function() {
+    equal(find("#select").val(), "#2");
+  });
+});
+
+test("multiple select", function() {
+  visit("/");
+
+  formulaic.fillForm({ "Multi-Select": ["#3", "#4"] });
+
+  andThen(function() {
+    equal(find("#multi-select").val(), "#3,#4");
   });
 });
 

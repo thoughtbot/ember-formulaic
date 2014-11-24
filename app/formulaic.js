@@ -11,10 +11,14 @@ export default {
     } else {
       var textSelector = selector + " + input";
       var textareaSelector = selector + " + textarea";
+      var selectSelector = selector + " + select";
 
       fillIn(textSelector, value)
         .then(function() {}, function() {
           fillIn(textareaSelector, value);
+        })
+        .then(function() {}, function() {
+          fillIn(selectSelector, value);
         });
     }
   },

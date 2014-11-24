@@ -21,6 +21,14 @@ With the following form:
     <input id="remember-me" type="checkbox" value=remember>
   </div>
 
+  <div class="input">
+    <label for="role">Role</label>
+    <select id="role">
+      <option value="admin">Admin</option>
+      <option value="user">User</option>
+    </select>
+  </div>
+
   <button class="submit">Login</button>
 </form>
 ```
@@ -41,6 +49,7 @@ test("fill in form", function() {
     "Email or Username": "ralph@thoughtbot.com",
     "Password": "secret",
     "Remember me": true
+    "Role": "user"
   });
   click("button.submit");
 
@@ -65,6 +74,7 @@ test("fill in form", function() {
   formulaic.fill("Email or Username", "ralph@thoughtbot.com");
   formulaic.fill("Password", "secret");
   formulaic.fill("Remember me", true);
+  formulaic.fill("Role", "user");
   click("button.submit");
 
   andThen(function() {
