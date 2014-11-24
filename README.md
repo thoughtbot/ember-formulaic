@@ -8,17 +8,17 @@ With the following form:
 <form {{action "login" on="submit"}}>
   <div class="input">
     <label for="email">Email or Username</label>
-    {{input id="email" type="text" value=email}}
+    <input id="email" type="text" value=email>
   </div>
 
   <div class="input">
     <label for="password">Password</label>
-    {{input id="password" type="password" value=password}}
+    <input id="password" type="password" value=password>
   </div>
 
   <div class="input">
     <label for="remember-me">Remember Me</label>
-    {{input id="remember-me" type="checkbox" value=remember}}
+    <input id="remember-me" type="checkbox" value=remember>
   </div>
 
   <button class="submit">Login</button>
