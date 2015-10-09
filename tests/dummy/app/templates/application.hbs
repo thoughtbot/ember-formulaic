@@ -1,30 +1,86 @@
-<div class="input">
-  <label for="text">Text</label>
-  <input id="text" type="text">
-</div>
+{{#if submitted}}
+  <span id="submitted"></span>
+{{/if}}
 
-<div class="input">
-  <label for="textarea">Textarea</label>
-  <textarea id="textarea"></textarea>
-</div>
+<form {{action "submit" on="submit"}}>
+  <div class="input">
+    <label for="text">{{t "form.text"}}</label>
+    <input id="text" type="text">
+  </div>
 
-<div class="input">
-  <label for="select">Select</label>
-  <select id="select">
-    <option value="#1">#1</option>
-    <option value="#2">#2</option>
-  </select>
-</div>
+  <div class="input">
+    <label for="textarea">{{t "form.textarea"}}</label>
+    <textarea id="textarea"></textarea>
+  </div>
 
-<div class="input">
-  <label for="multi-select">Multi-Select</label>
-  <select id="multi-select" multiple>
-    <option value="#3">#3</option>
-    <option value="#4">#4</option>
-  </select>
-</div>
+  <div class="input">
+    <label for="select">{{t "form.select"}}</label>
+    <select id="select">
+      <option value="#1">#1</option>
+      <option value="#2">#2</option>
+    </select>
+  </div>
 
-<div class="input">
-  <label for="checked-checkbox">Checked Checkbox</label>
-  <input id="checked-checkbox" type="checkbox">
-</div>
+  <div class="input">
+    <label for="multi-select">{{t "form.multi-select"}}</label>
+    <select id="multi-select" multiple>
+      <option value="#3">#3</option>
+      <option value="#4">#4</option>
+    </select>
+  </div>
+
+  <div class="input">
+    <label for="checkbox">{{t "form.checkbox"}}</label>
+    <input id="checkbox" type="checkbox">
+  </div>
+
+  <button>{{t "form.button"}}</button>
+
+  <input type="submit" value={{t "form.submit"}}>
+</form>
+
+{{#if nestedSubmitted}}
+  <span id="nested-submitted"></span>
+{{/if}}
+
+<form {{action "nestedSubmit" on="submit"}}>
+  <label>
+    {{t "nested.text"}}
+
+    <input id="nested-text" type="text">
+  </label>
+
+  <label>
+    {{t "nested.textarea"}}
+
+    <textarea id="nested-textarea"></textarea>
+  </label>
+
+  <label>
+    {{t "nested.select"}}
+
+    <select id="nested-select">
+      <option value="#1">#1</option>
+      <option value="#2">#2</option>
+    </select>
+  </label>
+
+  <label>
+    {{t "nested.multi-select"}}
+
+    <select id="nested-multi-select" multiple>
+      <option value="#3">#3</option>
+      <option value="#4">#4</option>
+    </select>
+  </label>
+
+  <label>
+    {{t "nested.checkbox"}}
+
+    <input id="nested-checkbox" type="checkbox">
+  </label>
+
+  <button>{{t "nested.button"}}</button>
+
+  <input type="submit" value={{t "nested.submit"}}>
+</form>

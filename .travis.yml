@@ -8,9 +8,30 @@ cache:
     - node_modules
 
 install:
+  - mkdir travis-phantomjs
+  - wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -O $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
+  - tar -xvf $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -C $PWD/travis-phantomjs
+  - export PATH=$PWD/travis-phantomjs:$PATH
+
   - npm install -g bower
   - npm install
   - bower install
 
+matrix:
+  fast_finish: true
+  allow_failures:
+    - env: EMBER_VERSION='ember-release'
+    - env: EMBER_VERSION='ember-beta'
+    - env: EMBER_VERSION='ember-canary'
+  include:
+    - env: "EMBER_VERSION='default'"
+    - env: "EMBER_VERSION='ember-release'"
+    - env: "EMBER_VERSION='ember-beta'"
+    - env: "EMBER_VERSION='ember-canary'"
+
+notifications:
+  email: false
+
 script:
-  - npm test
+  # run our tests against the Ember version and browser of our choice
+  - ember try ${EMBER_VERSION} test --port=8080 --skip-cleanup
