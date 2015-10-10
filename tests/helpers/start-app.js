@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import Application from '../../app';
 import config from '../../config/environment';
-import './test-helpers';
+import './ember-formulaic/test-helpers';
 
 function setupI18n(application) {
   const i18n = application.__container__.lookup('service:i18n');

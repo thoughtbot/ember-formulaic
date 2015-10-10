@@ -9,6 +9,13 @@ procedurally calling Ember’s DSL methods.
 
 ## Usage
 
+First, import the test helpers:
+
+```js
+// tests/test-helper.js
+import './ember-formulaic/test-helpers';
+```
+
 Assume the page has the following template:
 
 ```hbs
@@ -63,19 +70,19 @@ In your acceptance test, use the `fillForm` method:
 ```js
 // test/acceptance/fill-in-form-test.js
 
-test("fill in form", function() {
-  visit("/login")
+test('fill in form', function() {
+  visit('/login')
 
   fillForm({
-    "login.email": "ralph@thoughtbot.com",
-    "login.password": "secret",
-    "login.remember-me": true,
-    "login.role": "user",
+    'login.email': 'ralph@thoughtbot.com',
+    'login.password': 'secret',
+    'login.remember-me': true,
+    'login.role': 'user',
   });
-  clickOn("form.submit");
+  clickOn('form.submit');
 
   andThen(function() {
-    equal(currentPath(), "loggedInPath");
+    equal(currentPath(), 'loggedInPath');
   });
 });
 ```

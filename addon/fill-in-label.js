@@ -42,4 +42,4 @@ export default function(app, i18n, value) {
 
     return wait();
   });
-};
+}
