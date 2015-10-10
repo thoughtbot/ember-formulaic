@@ -4,6 +4,7 @@ const { run } = Ember;
 
 export default function(app, i18n, value) {
   const {
+    click,
     clickOn,
     find,
     findWithAssert,
@@ -22,9 +23,9 @@ export default function(app, i18n, value) {
       const $element = findWithAssert(`#${id}`);
 
       if ($element.prop('type') === 'checkbox') {
-        $element.prop('checked', value);
+        click($element);
       } else {
-        $element.val(value);
+        fillIn($element, value);
       }
     } else {
       const nested = [
