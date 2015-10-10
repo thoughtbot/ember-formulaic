@@ -1,6 +1,10 @@
 master
 ------
 
+* Change behvaior of `fillForm` to only work on
+  `<label for="text">Text</label><input id="text">`, in addition to
+  `<label>Text <input></label>`
+
 0.0.2
 -----
 

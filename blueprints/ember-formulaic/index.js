@@ -8,10 +8,12 @@ module.exports = {
   },
 
   afterInstall: function() {
-    this.insertIntoFile('tests/.jshintrc', '    "clickOn",' , {
-      after: '"predef": [\n'
-    });
-    this.insertIntoFile('tests/.jshintrc', '    "fillForm",' , {
+    var predefs = [
+      '    "clickOn",',
+      '    "fillForm",',
+    ].join('\n');
+
+    this.insertIntoFile('tests/.jshintrc',  predefs, {
       after: '"predef": [\n'
     });
 

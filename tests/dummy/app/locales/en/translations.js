@@ -1,12 +1,12 @@
 export default {
   'form': {
-    'button': 'Sibling Button',
-    'checkbox': 'Sibling Checkbox',
-    'multi-select': 'Sibling Multi-Select',
-    'select': 'Sibling Select',
-    'submit': 'Sibling Submit',
-    'text': 'Sibling Text',
-    'textarea': 'Sibling Textarea',
+    'button': 'For ID Button',
+    'checkbox': 'For ID Checkbox',
+    'multi-select': 'For ID Multi-Select',
+    'select': 'For ID Select',
+    'submit': 'For ID Submit',
+    'text': 'For ID Text',
+    'textarea': 'For ID Textarea',
   },
   'nested': {
     'button': 'Nested Button',
