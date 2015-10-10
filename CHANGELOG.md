@@ -1,6 +1,9 @@
 master
 ------
 
+0.0.4
+-----
+
 * Trigger change event when filling `{input,textarea,select}`.
 
 0.0.3
