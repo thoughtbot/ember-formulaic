@@ -1,6 +1,9 @@
 master
 ------
 
+0.0.3
+-----
+
 * Restructure files to enable `import './ember-formulaic/test-helpers';`
 * Change behvaior of `fillForm` to only work on
   `<label for="text">Text</label><input id="text">`, in addition to
