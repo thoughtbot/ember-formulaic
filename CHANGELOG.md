@@ -1,6 +1,9 @@
 master
 ------
 
+0.0.5
+-----
+
 * Add `clickOn` support for `<a>` tags and `<input type="radio">`
 
 0.0.4
