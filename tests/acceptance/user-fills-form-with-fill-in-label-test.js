@@ -67,6 +67,30 @@ test('multiple select', assert => {
   });
 });
 
+test('radio', assert => {
+  visit('/');
+
+  fillForm({
+    'form.radio.yes': true,
+    'nested.radio.yes': true,
+  });
+
+  andThen(function() {
+    assert.ok(findWithAssert('#yes').prop('checked'), 'checks yes');
+    assert.ok(findWithAssert('#nested-yes').prop('checked'), 'checks nested yes');
+  });
+
+  fillForm({
+    'form.radio.no': true,
+    'nested.radio.no': true,
+  });
+
+  andThen(function() {
+    assert.ok(findWithAssert('#no').prop('checked'), 'checks no');
+    assert.ok(findWithAssert('#nested-no').prop('checked'), 'checks nested no');
+  });
+});
+
 test('checkbox', assert => {
   visit('/');
 

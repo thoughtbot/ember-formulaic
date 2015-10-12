@@ -34,7 +34,17 @@
     <input id="checkbox" type="checkbox">
   </div>
 
+  <div class="input">
+    <label for="yes">{{t "form.radio.yes"}}</label>
+    <input id="yes" name="radio" type="radio" value="yes">
+
+    <label for="no">{{t "form.radio.no"}}</label>
+    <input id="no" name="radio" type="radio" value="no">
+  </div>
+
   <button>{{t "form.button"}}</button>
+
+  <a href="#" {{action "submit"}}>{{t "form.anchor"}}</a>
 
   <input type="submit" value={{t "form.submit"}}>
 </form>
@@ -79,6 +89,20 @@
 
     <input id="nested-checkbox" type="checkbox">
   </label>
+
+  <div class="input">
+    <label for="nested-yes">
+      {{t "nested.radio.yes"}}
+
+      <input id="nested-yes" name="nested-radio" type="radio" value="yes">
+    </label>
+
+    <label for="nested-no">
+      {{t "nested.radio.no"}}
+
+      <input id="nested-no" name="nested-radio" type="radio" value="no">
+    </label>
+  </div>
 
   <button>{{t "nested.button"}}</button>
 

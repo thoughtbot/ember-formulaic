@@ -8,6 +8,7 @@ Ember.Test.registerAsyncHelper('clickOn', function(app, i18n) {
 
   const text = t(i18n);
   const selector = [
+    `a:contains("${text}")`,
     `label:contains("${text}")`,
     `button:contains("${text}")`,
     `input[type="submit"][value="${text}"]`,

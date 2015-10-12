@@ -22,7 +22,7 @@ export default function(app, i18n, value) {
     if (id) {
       const $element = findWithAssert(`#${id}`);
 
-      if ($element.prop('type') === 'checkbox') {
+      if ($element.prop('type').match(/checkbox|radio/i)) {
         click($element);
       } else {
         fillIn($element, value);

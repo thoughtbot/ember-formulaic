@@ -1,8 +1,13 @@
 export default {
   'form': {
+    'anchor': 'For ID Anchor',
     'button': 'For ID Button',
     'checkbox': 'For ID Checkbox',
     'multi-select': 'For ID Multi-Select',
+    'radio': {
+      'yes': 'For ID Yes',
+      'no': 'For ID No',
+    },
     'select': 'For ID Select',
     'submit': 'For ID Submit',
     'text': 'For ID Text',
@@ -16,5 +21,9 @@ export default {
     'submit': 'Nested Submit',
     'text': 'Nested Text',
     'textarea': 'Nested Textarea',
+    'radio': {
+      'yes': 'Nested Yes',
+      'no': 'Nested No',
+    },
   },
 };
