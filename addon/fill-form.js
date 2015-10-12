@@ -1,11 +1,23 @@
 import Ember from 'ember';
 import fillInLabel from './fill-in-label';
 
-Ember.Test.registerAsyncHelper('fillForm', function(app, i18nKeysAndValues) {
-  const promises = Object.keys(i18nKeysAndValues).map(i18nKey => {
-    const value = i18nKeysAndValues[i18nKey];
+Ember.Test.registerAsyncHelper('fillForm', function(app, namespace, hash) {
+  if (!namespace) {
+    throw '`fillForm` expects the first argument to be a String that ' +
+          'will be prepended to all I18n keys, or an Object whose keys ' +
+          ' are I18n keys.';
+  } else if (typeof namespace === 'object') {
+    hash = namespace;
+    namespace = null;
+  }
 
-    return fillInLabel(app, i18nKey, value);
+  const promises = Object.keys(hash).map(i18nKey => {
+    const value = hash[i18nKey];
+    const namespacedKey = Ember.A([namespace, i18nKey])
+      .filter(i => i)
+      .join('.');
+
+    return fillInLabel(app, namespacedKey, value);
   });
 
   return Ember.RSVP.all(promises);

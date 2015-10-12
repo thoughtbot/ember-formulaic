@@ -73,6 +73,15 @@ In your acceptance test, use the `fillForm` method:
 test('fill in form', function() {
   visit('/login')
 
+  // with the 'login' namespace
+  fillForm('login', {
+    email: 'ralph@thoughtbot.com',
+    password: 'secret',
+    remember-me: true,
+    role: 'user',
+  });
+
+  // without a namespace
   fillForm({
     'login.email': 'ralph@thoughtbot.com',
     'login.password': 'secret',

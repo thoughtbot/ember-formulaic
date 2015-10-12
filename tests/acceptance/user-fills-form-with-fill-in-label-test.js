@@ -23,6 +23,18 @@ test('text', assert => {
     assert.equal(findWithAssert('#text').val(), 'text');
     assert.equal(findWithAssert('#nested-text').val(), 'text');
   });
+
+  fillForm('form', {
+    text: 'namespaced text',
+  });
+
+  andThen(function() {
+    assert.equal(
+      findWithAssert('#text').val(),
+      'namespaced text',
+      'accepts namespace'
+    );
+  });
 });
 
 test('textarea', assert => {

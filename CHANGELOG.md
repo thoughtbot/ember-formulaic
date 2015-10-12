@@ -1,6 +1,8 @@
 master
 ------
 
+* Accept an I18n namespace to be prepended to `fillForm`'s translation keys
+
 0.0.5
 -----
 
