@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import translationOrNull from './utils/translation-or-null';
 
 const { run } = Ember;
 
@@ -12,7 +13,7 @@ export default function(app, i18n, value) {
     t,
     wait
   } = app.testHelpers;
-  const text = t(i18n);
+  const text = translationOrNull(t(i18n)) || i18n;
   const label = `label:contains("${text}")`;
 
   run(() => {

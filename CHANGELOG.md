@@ -1,6 +1,7 @@
 master
 ------
 
+* Falls back to checking the label for the value of the translation key
 * Accept an I18n namespace to be prepended to `fillForm`'s translation keys
 
 0.0.5

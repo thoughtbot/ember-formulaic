@@ -96,6 +96,29 @@ test('fill in form', function() {
 });
 ```
 
+### Missing Translations
+
+In the case of missing translations, `fillForm` and `clickOn` will fallback to
+looking up `label` tags containing the value of the translation key.
+
+For instance:
+
+```js
+clickOn('A label without a translation');
+```
+
+will look for first look for a translation keyed by `"A label without a
+translation"`, fail, then fallback to looking for
+`label:contains("A label without a translation")`.
+
+**NOTE:**
+
+If you've overridden [app/utils/i18n/missing-message.js][override] to return a
+non-`null` value that doesn't begin with `Missing translation`, this behavior
+won't work.
+
+[override]: https://github.com/jamesarosen/ember-i18n/wiki/Doc:-Missing-Translations#missing-translations
+
 ## Installation
 
 * `git clone` this repository

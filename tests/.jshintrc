@@ -24,7 +24,8 @@
     "currentRouteName",
     "fillInLabel",
     "fillForm",
-    "clickOn"
+    "clickOn",
+    "t"
   ],
   "node": false,
   "browser": false,

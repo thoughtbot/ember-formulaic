@@ -35,6 +35,11 @@
   </div>
 
   <div class="input">
+    <label for="interpolated">{{t "form.interpolated" name="form"}}</label>
+    <input id="interpolated" type="checkbox">
+  </div>
+
+  <div class="input">
     <label for="yes">{{t "form.radio.yes"}}</label>
     <input id="yes" name="radio" type="radio" value="yes">
 
@@ -88,6 +93,12 @@
     {{t "nested.checkbox"}}
 
     <input id="nested-checkbox" type="checkbox">
+  </label>
+
+  <label>
+    {{t "nested.interpolated" name="nested"}}
+
+    <input id="nested-interpolated" type="checkbox">
   </label>
 
   <div class="input">

@@ -126,3 +126,37 @@ test('checkbox', assert => {
     assert.ok(!findWithAssert('#nested-checkbox').prop('checked'), 'unchecks checkbox');
   });
 });
+
+test('without I18n key', assert => {
+  visit('/');
+
+  fillForm({
+    'For ID Text': 'text',
+  });
+
+  andThen(function() {
+    assert.equal(
+      findWithAssert('#text').val(),
+      'text',
+      'falls back to key as label'
+    );
+  });
+});
+
+test('with interpolation', assert => {
+  visit('/');
+
+  clickOn(t('form.interpolated', { name: 'form' }));
+  clickOn(t('nested.interpolated', { name: 'nested' }));
+
+  andThen(function() {
+    assert.ok(
+      findWithAssert('#interpolated').prop('checked'),
+      'handles interpolated keys'
+    );
+    assert.ok(
+      findWithAssert('#nested-interpolated').prop('checked'),
+      'handles nested interpolated keys'
+    );
+  });
+});
