@@ -1,6 +1,9 @@
 master
 ------
 
+0.0.6
+-----
+
 * When searching for `label` tags containing translations, strip HTML tags
   from search text
 * Falls back to checking the label for the value of the translation key
