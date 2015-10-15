@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import translationOrNull from './utils/translation-or-null';
+import translate from './utils/translate';
 
 Ember.Test.registerAsyncHelper('clickOn', function(app, i18n) {
   const {
@@ -7,7 +7,7 @@ Ember.Test.registerAsyncHelper('clickOn', function(app, i18n) {
     t
   } = app.testHelpers;
 
-  const text = translationOrNull(t(i18n)) || i18n;
+  const text = translate(t, i18n);
   const selector = [
     `a:contains("${text}")`,
     `label:contains("${text}")`,

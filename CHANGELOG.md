@@ -1,6 +1,8 @@
 master
 ------
 
+* When searching for `label` tags containing translations, strip HTML tags
+  from search text
 * Falls back to checking the label for the value of the translation key
 * Accept an I18n namespace to be prepended to `fillForm`'s translation keys
 

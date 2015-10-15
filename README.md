@@ -96,6 +96,26 @@ test('fill in form', function() {
 });
 ```
 
+### Translations with embedded HTML
+
+When translating a label with HTML:
+
+```hbs
+<label for="send-emails>{{t "send-emails" email="me@example.com"}}</label>
+<input id="send-emails" type="checkbox">
+```
+
+with the following translation file:
+
+```js
+export default {
+  'send-emails': 'Send me (<strong>{{email}}</strong>) emails',
+};
+```
+
+`fillForm` and `clickOn` will strip out the `<strong>` tags when looking for
+`label:contains("Send me (me@example.com) emails")`.
+
 ### Missing Translations
 
 In the case of missing translations, `fillForm` and `clickOn` will fallback to
