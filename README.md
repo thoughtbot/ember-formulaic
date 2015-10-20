@@ -12,7 +12,7 @@ procedurally calling Ember’s DSL methods.
 First, import the test helpers:
 
 ```js
-// tests/test-helper.js
+// tests/start-app.js
 import './ember-formulaic/test-helpers';
 ```
 
